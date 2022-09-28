@@ -406,7 +406,10 @@ nav ul li a{
     .footer-left, .footer-right{
         flex-basis: 100%;
         font-size: 14px;
-        
-    
+       
     }
+    .footer-text h1{
+    font-size: 20px;
+    color: #fff;
+}
 }
