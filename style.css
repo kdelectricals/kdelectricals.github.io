@@ -267,6 +267,16 @@ nav ul li a{
    height:400;
   
 }
+
+@media screen and (max-width : 770px){
+    .single-product img{
+        width: 100%;
+        border-radius: 7px ; 
+        height:300;
+       
+     }  
+}
+
 .overlay{
     height: 100%;
     width:100%;
@@ -392,6 +402,7 @@ nav ul li a{
     padding-top: 20px;
     padding-bottom: 20px;
     color: #fff;
+    padding-left: 20px;
     
 }
 .footer-text{
@@ -406,10 +417,23 @@ nav ul li a{
     .footer-left, .footer-right{
         flex-basis: 100%;
         font-size: 14px;
+        text-align: center;
+        
        
     }
+    .footer-right{
+        margin-top: 20px;
+        text-align: center;
+    }
     .footer-text h1{
-    font-size: 20px;
+    font-size: 32px;
     color: #fff;
+    
+}
+.footer-row p{
+    margin-top: 20;
+   line-height: 18px;
+   color: #fff;
+    
 }
 }
