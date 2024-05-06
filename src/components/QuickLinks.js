@@ -20,12 +20,10 @@ const QuickLinksContainer = styled.div`
   color: #fff;
   padding: 50px;
   margin-left: 70px;
-  margin-right: -120px;
 
-  @media (min-width: 768px) {
-    flex-direction: row; /* Switch back to row layout for larger screens */
-    justify-content: space-between;
-    align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column; /* Switch to column layout for smaller screens */
+    align-items: center; /* Center items horizontally */
   }
 `;
 

@@ -66,8 +66,10 @@ const CoreFeaturesSection = styled.div`
   align-items: center;
   background-color: hsla(208, 33%, 89%, 1);
 
-  @media (max-width: 768px) {
-    padding: 10px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 `;
 
@@ -109,8 +111,8 @@ const ProductContainer = styled.div`
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Change to column layout for smaller screens */
+    align-items: center; /* Center items horizontally */
   }
 `;
 
@@ -132,6 +134,10 @@ const ProductCard = styled.div`
   &:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; /* Full width for smaller screens */
   }
 `;
 
