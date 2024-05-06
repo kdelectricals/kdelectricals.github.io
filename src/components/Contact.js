@@ -8,7 +8,7 @@ const ContactContainer = styled.div`
   padding: 40px;
   border-radius: 10px;
   margin-bottom: 40px;
-  width: 90%;
+  width: 80%;
   max-width: 1000px;
   align-items: center;
   background-color: hsla(208, 33%, 89%, 1);
