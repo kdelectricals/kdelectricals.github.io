@@ -39,7 +39,7 @@ const HomeContainer = styled.div`
   color: #fff;
 
   @media (max-width: 768px) {
-    height: auto;
+    height: 50vh;
   }
 `;
 
@@ -60,7 +60,7 @@ const SubHeading = styled.h3`
 `;
 
 const CoreFeaturesSection = styled.div`
-  padding: 20px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +74,6 @@ const CoreFeaturesSection = styled.div`
 `;
 
 const TestimonialsSection = styled.div`
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,13 +105,13 @@ const BrandLogo = styled.img`
 
 const ProductContainer = styled.div`
   display: flex;
-  padding: 20px;
+  flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+  align-items: center;
   margin-top: 10px;
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    flex-direction: column; /* Change to column layout for smaller screens */
-    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center align items on small screens */
   }
 `;
 
@@ -128,7 +127,8 @@ const ProductCard = styled.div`
   height: 400px;
   display: flex;
   flex-direction: column;
-  margin: 0 10px 20px;
+
+  margin: 0 20px 20px 0px;
   align-items: center;
 
   &:hover {
@@ -137,7 +137,12 @@ const ProductCard = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 100%; /* Full width for smaller screens */
+    display: flex;
+    width: 90%;
+    align-items: center;
+    margin-left: 10px;
+    justify-content: center;
+    height: 100%;
   }
 `;
 
@@ -157,6 +162,9 @@ const ProductImage = styled.img`
   height: 250px;
   object-fit: cover;
   border-radius: 4px;
+  @media (max-width: 768px) {
+    height: 450px;
+  }
 `;
 
 const StyledLink = styled(Link)`

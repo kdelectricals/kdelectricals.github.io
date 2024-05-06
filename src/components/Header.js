@@ -11,16 +11,30 @@ const HeaderContainer = styled.header`
   height: 100px;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const Logo = styled.img`
   height: 100px;
   margin-left: 20px;
+
+  @media screen and (max-width: 768px) {
+    height: 80px;
+    margin-left: 10px;
+  }
 `;
 
 const Nav = styled.nav`
   margin-left: auto;
   margin-right: 40px;
+
+  @media screen and (max-width: 768px) {
+    margin-right: 50px;
+    margin-left: 10px;
+  }
 `;
 
 const NavLink = styled(Link)`
@@ -39,6 +53,11 @@ const NavLink = styled(Link)`
   &.active {
     color: #db0003; /* Change color when link is active (selected) */
   }
+
+  @media screen and (max-width: 768px) {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
 `;
 
 const Title = styled.div`
@@ -51,6 +70,10 @@ const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   user-select: none; /* Disable text selection */
+
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 const Header = () => {
