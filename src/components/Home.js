@@ -37,6 +37,10 @@ const HomeContainer = styled.div`
   align-items: center;
   height: 70vh;
   color: #fff;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;
 
 const HomeContent = styled.div`
@@ -61,6 +65,10 @@ const CoreFeaturesSection = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: hsla(208, 33%, 89%, 1);
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const TestimonialsSection = styled.div`
@@ -77,12 +85,21 @@ const BrandLogosContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 50px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const BrandLogo = styled.img`
   width: 150px;
   height: auto;
   margin: 20px;
+
+  @media (max-width: 768px) {
+    margin: 10px;
+  }
 `;
 
 const ProductContainer = styled.div`
@@ -90,6 +107,11 @@ const ProductContainer = styled.div`
   padding: 20px;
   margin-top: 10px;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ProductCard = styled.div`
