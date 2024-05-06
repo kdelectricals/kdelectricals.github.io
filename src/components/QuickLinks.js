@@ -21,7 +21,6 @@ const QuickLinksContainer = styled.div`
   padding: 50px;
   margin-left: 70px;
   
-
   @media (max-width: 768px) {
     flex-direction: column; /* Switch to column layout for smaller screens */
     align-items: center; /* Center items horizontally */
