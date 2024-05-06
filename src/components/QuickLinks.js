@@ -17,14 +17,27 @@ const MainContainer = styled.div`
 const QuickLinksContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  color: #fff; /* Teal theme text color */
+  color: #fff;
   padding: 50px;
   margin-left: 70px;
-  margin-right: 70px;
+  margin-right: -120px;
+
+  @media (min-width: 768px) {
+    flex-direction: row; /* Switch back to row layout for larger screens */
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const QuickLinksSection = styled.div`
   text-align: center;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    flex-basis: 30%; /* Set a specific width for sections on larger screens */
+    text-align: left;
+    margin-bottom: 0; /* Remove margin bottom for larger screens */
+  }
 `;
 
 const QuickLinksHeader = styled.h3`
@@ -102,11 +115,20 @@ const QuickLinks = () => {
   const contactInfo = [
     { label: "Email", info: "sales@kdelectricals.com", icon: <FaEnvelope /> },
     { label: "Phone", info: "+91 9545274046", icon: <FaPhone /> },
+  ];
+
+  const addressinfo = [
     {
       label: "Address",
-      info: "Near Bazar chowk, Opp. bank of India, Hingna Nagpur 441110",
+      info: "Near Bazar chowk",
       icon: <FaMapPin />,
-    }, // No icon for address
+    },
+    {
+      info: " Opp. bank of India,",
+    },
+    {
+      info: "Hingna Nagpur 441110",
+    },
   ];
 
   const socialHandles = [
@@ -127,11 +149,23 @@ const QuickLinks = () => {
   return (
     <MainContainer>
       <QuickLinksContainer>
-        <CompanyInfo>
+        <QuickLinksSection>
           <CompanyName>KD Electricals</CompanyName>
           <CompanyAim>Lighting the Future,</CompanyAim>
           <CompanyAim>Building Trust with Every Connection</CompanyAim>
-        </CompanyInfo>
+        </QuickLinksSection>
+        <QuickLinksSection>
+          <CompanyName>Address</CompanyName>
+
+          {addressinfo.map((info, index) => (
+            <QuickLinksInfo>
+              {info.icon && (
+                <QuickLinksInfoIcon>{info.icon}</QuickLinksInfoIcon>
+              )}
+              {info.info}
+            </QuickLinksInfo>
+          ))}
+        </QuickLinksSection>
         <QuickLinksSection>
           <QuickLinksHeader>Contact Info</QuickLinksHeader>
           <QuickLinksList>
