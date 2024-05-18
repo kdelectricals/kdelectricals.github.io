@@ -22,6 +22,10 @@ const Section = styled.section`
   padding: 40px 150px 50px;
   background-color: hsla(208, 33%, 89%, 1);
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 40px 40px 50px;
+  }
 `;
 
 const Separator = styled.div`
@@ -41,6 +45,14 @@ const SecondSection = styled.section`
   flex-direction: row;
   align-items: center;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
 `;
 
 const SectionTitle = styled.h3`
@@ -96,6 +108,9 @@ const FeatureCard = styled(Card)`
   width: 250px;
   background: #84a1b8;
   position: relative;
+  @media (max-width: 768px) {
+    width: 200px;
+  }
 `;
 
 const Icon = styled.div`
@@ -123,6 +138,19 @@ const Description = styled.p`
   font-size: 18px;
   line-height: 1.8;
   text-align: justify;
+
+  @media (min-width: 768px) {
+    margin: 0; // Remove margin for larger screens
+  }
+`;
+
+const MissionContainer = styled.p`
+  flex: 1;
+  padding: 30px;
+
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
 `;
 
 const About = () => {
@@ -149,10 +177,10 @@ const About = () => {
       </Section>
 
       <SecondSection>
-        <div style={{ flex: "1", padding: "30px" }}>
-          <img src={homeindoor} alt="homeindoor" style={{ width: "100%" }} />
-        </div>
-        <div style={{ flex: "1", padding: "30px" }}>
+        <MissionContainer>
+          <img src={homeindoor} alt="homeindoor" style={{ width: "90%" }} />
+        </MissionContainer>
+        <MissionContainer>
           <SectionTitle>Our Mission</SectionTitle>
           <Description>
             Our mission at KD Electricals is to deliver excellence in the
@@ -163,7 +191,7 @@ const About = () => {
             relationships with our customers, suppliers, and communities,
             contributing to a sustainable and prosperous future for all.
           </Description>
-        </div>
+        </MissionContainer>
       </SecondSection>
 
       <WhyChooseUs>

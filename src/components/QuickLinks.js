@@ -10,9 +10,14 @@ import {
 } from "react-icons/fa";
 
 const MainContainer = styled.div`
-  background-color: #2c3e50; /* Teal theme background color */
+  background-color: #2c3e50;
   width: 100%;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    align-items: center; /* Center items horizontally */
+    justify-content: center;
+  }
 `;
 const QuickLinksContainer = styled.div`
   display: flex;
@@ -22,8 +27,10 @@ const QuickLinksContainer = styled.div`
   margin-left: 70px;
 
   @media (max-width: 768px) {
-    flex-direction: column; /* Switch to column layout for smaller screens */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-left: 0;
   }
 `;
 
@@ -32,9 +39,9 @@ const QuickLinksSection = styled.div`
   margin-bottom: 20px;
 
   @media (min-width: 768px) {
-    flex-basis: 30%; /* Set a specific width for sections on larger screens */
+    flex-basis: 30%;
     text-align: left;
-    margin-bottom: 0; /* Remove margin bottom for larger screens */
+    margin-bottom: 0;
   }
 `;
 
