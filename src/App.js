@@ -13,7 +13,7 @@ import Fans from "./components/Fans";
 
 const App = () => {
   return (
-    <Router>
+    <Router style={{ width: "100%" }}>
       <div>
         <Header />
         <Routes>

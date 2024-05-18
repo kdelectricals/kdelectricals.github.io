@@ -1,39 +1,73 @@
 // Header.js
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import logo from "./../images/logo.png";
+import { FaBars } from "react-icons/fa";
 
 const HeaderContainer = styled.header`
   background: #fff;
   color: #000000;
-  padding: 10px 20px;
+  margin-right: 100px;
   height: 100px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 
   @media screen and (max-width: 768px) {
-    padding: 10px;
+    height: 80px;
   }
 `;
 
 const Logo = styled.img`
-  height: 100px;
+  height: 80px;
   margin-left: 20px;
+  margin-top: 20px;
 
   @media screen and (max-width: 768px) {
-    height: 80px;
+    height: 60px;
     margin-left: 10px;
+    margin-top: 10px;
+  }
+`;
+
+const CompanyInfo = styled.img`
+  font-size: 28px;
+  height: 80px;
+  margin-left: 20px;
+`;
+
+const Title = styled.h1`
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  margin-left: 10px; /* Add margin to the left */
+  margin-top: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin-left: 5px;
+    margin-top: 30px;
   }
 `;
 
 const Nav = styled.nav`
-  margin-left: auto;
-  margin-right: 40px;
+  display: flex;
+  align-items: center;
 
   @media screen and (max-width: 768px) {
-    margin-right: 50px;
-    margin-left: 10px;
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    width: 70%;
+    z-index: 1000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
   }
 `;
 
@@ -42,59 +76,85 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
-  margin-left: 35px;
-  margin-top: 20px;
+  margin: 0 10px;
+  display: block;
+  padding: 10px 0;
 
   &:hover {
-    text-decoration: none;
-    color: #db0003; /* Change color on hover to your theme color */
+    color: #db0003;
   }
 
   &.active {
-    color: #db0003; /* Change color when link is active (selected) */
+    color: #db0003;
   }
 
-  @media screen and (max-width: 768px) {
-    margin-right: 10px;
-    margin-left: 10px;
+  @media screen and (max-width: 400px) {
+    margin: 8px;
   }
 `;
 
-const Title = styled.div`
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Arial", sans-serif;
-  color: #000000;
-  max-width: 50%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  user-select: none; /* Disable text selection */
+const MenuIcon = styled.div`
+  display: none;
+  cursor: pointer;
 
   @media screen and (max-width: 768px) {
-    font-size: 30px;
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 1100;
   }
 `;
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <HeaderContainer>
-      <Logo src={logo} alt="Logo" />
-      <Title> KD Electricals</Title>
-      <Nav>
-        <NavLink activeClassName="active" to="/">
+      <div style={{ display: "flex" }}>
+        {" "}
+        <Logo src={logo} alt="Logo" />
+        <Title>KD Electricals</Title>
+      </div>
+
+      <Nav isOpen={isOpen}>
+        <NavLink
+          to="/"
+          className={location.pathname === "/" ? "active" : ""}
+          onClick={toggleMenu}
+        >
           Home
         </NavLink>
-        <NavLink activeClassName="active" to="/products">
+        <NavLink
+          to="/products"
+          className={location.pathname === "/products" ? "active" : ""}
+          onClick={toggleMenu}
+        >
           Products
         </NavLink>
-        <NavLink activeClassName="active" to="/about">
+        <NavLink
+          to="/about"
+          className={location.pathname === "/about" ? "active" : ""}
+          onClick={toggleMenu}
+        >
           About
         </NavLink>
-        <NavLink activeClassName="active" to="/contact">
+        <NavLink
+          to="/contact"
+          className={location.pathname === "/contact" ? "active" : ""}
+          onClick={toggleMenu}
+        >
           Contact
         </NavLink>
       </Nav>
+      <MenuIcon onClick={toggleMenu}>
+        <FaBars /> {/* Use the FaBars icon here */}
+      </MenuIcon>
     </HeaderContainer>
   );
 };

@@ -17,14 +17,15 @@ import bldcfan from "./../images/bldcfan.jpg";
 import panel from "./../images/panel.jpg";
 import wireCable from "./../images/wireCable.webp";
 import unica from "./../images/unica.jpg";
+import homebackground from "./../images/homebackground.jpg";
 
 const MainContainer = styled.div`
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    hsla(208, 33%, 21%, 1) 21%,
-    hsla(211, 36%, 46%, 1) 100%
-  );
+  background-image: url(${homebackground});
+  background-size: cover;
+
+  overflow-x: hidden;
+  height: 70vh;
 `;
 
 const Container = styled.div`
@@ -35,8 +36,9 @@ const HomeContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+
   color: #fff;
+  width: 100%;
 
   @media (max-width: 768px) {
     height: 50vh;
@@ -44,9 +46,10 @@ const HomeContainer = styled.div`
 `;
 
 const HomeContent = styled.div`
-  text-align: center;
-  max-width: 800px;
-  padding: 0 20px;
+  align-items: center;
+  padding: 100px;
+  margin-top: 100px;
+  margin-left: auto;
 `;
 
 const Heading = styled.h1`
@@ -55,8 +58,10 @@ const Heading = styled.h1`
 `;
 
 const SubHeading = styled.h3`
-  font-size: 28px;
+  font-size: 22px;
+  font-weight: 400;
   margin-bottom: 30px;
+  align-items: center;
 `;
 
 const CoreFeaturesSection = styled.div`
@@ -66,10 +71,11 @@ const CoreFeaturesSection = styled.div`
   align-items: center;
   background-color: hsla(208, 33%, 89%, 1);
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding: 20px;
   }
 `;
 
@@ -111,7 +117,7 @@ const ProductContainer = styled.div`
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    justify-content: center; /* Center align items on small screens */
+    justify-content: center;
   }
 `;
 
@@ -123,7 +129,7 @@ const ProductCard = styled.div`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 
-  width: 300px;
+  width: 30vh;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -138,11 +144,12 @@ const ProductCard = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
-    width: 90%;
+
     align-items: center;
     margin-left: 10px;
     justify-content: center;
-    height: 100%;
+    height: 60vh;
+    width: 80%;
   }
 `;
 
@@ -221,7 +228,7 @@ const TestimonialCard = styled.div`
   padding: 20px;
   margin: 10px 10px; /* Add margin for space between cards */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 380px; /* Adjust as needed */
+  max-width: 370px; /* Adjust as needed */
   height: 220px;
   margin-bottom: 20px;
 `;
