@@ -153,7 +153,7 @@ const Header = () => {
         </NavLink>
       </Nav>
       <MenuIcon onClick={toggleMenu}>
-        <FaBars /> {/* Use the FaBars icon here */}
+        <FaBars />
       </MenuIcon>
     </HeaderContainer>
   );
