@@ -18,6 +18,8 @@ import panel from "./../images/panel.jpg";
 import wireCable from "./../images/wireCable.webp";
 import unica from "./../images/unica.jpg";
 import homebackground from "./../images/homebackground.jpg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const MainContainer = styled.div`
   width: 100%;
@@ -25,7 +27,11 @@ const MainContainer = styled.div`
   background-size: cover;
 
   overflow-x: hidden;
-  height: 70vh;
+  height: 90vh;
+
+  @media (max-width: 768px) {
+    height: 35vh;
+  }
 `;
 
 const Container = styled.div`
@@ -36,12 +42,14 @@ const HomeContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  overflow-x: hidden;
   color: #fff;
   width: 100%;
 
   @media (max-width: 768px) {
-    height: 50vh;
+    height: 40vh;
+    display: flex;
+    margin-left: auto;
   }
 `;
 
@@ -50,11 +58,24 @@ const HomeContent = styled.div`
   padding: 100px;
   margin-top: 100px;
   margin-left: auto;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-left: 95px; /* Adjust as needed */
+    text-align: right; /* Align text to the right */
+    padding: 0 15px; /* Add some padding */
+  }
 `;
 
 const Heading = styled.h1`
   font-size: 48px;
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
 `;
 
 const SubHeading = styled.h3`
@@ -62,6 +83,10 @@ const SubHeading = styled.h3`
   font-weight: 400;
   margin-bottom: 30px;
   align-items: center;
+  @media (max-width: 768px) {
+    margin-bottom: 70px;
+    font-size: 14px;
+  }
 `;
 
 const CoreFeaturesSection = styled.div`
@@ -182,6 +207,10 @@ const StyledLink = styled(Link)`
 const TestimonialSection = styled.section`
   background-color: #f9f9f9;
   padding: 10px 100px 40px 100px;
+
+  @media (max-width: 768px) {
+    padding: 10px 30px 40px 30px;
+  }
 `;
 
 const TestimonialContainer = styled(Slider)`
@@ -226,11 +255,19 @@ const TestimonialCard = styled.div`
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
-  margin: 10px 10px; /* Add margin for space between cards */
+  margin: 10px 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 370px; /* Adjust as needed */
+  max-width: 85%; /* Adjust as needed */
   height: 220px;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    max-width: 85%; /* Make the card take most of the screen width */
+    height: auto; /* Adjust height */
+    margin: 20px 5px; /* Center the cards and add spacing */
+    padding: 20px;
+    height: 50vh;
+  }
 `;
 
 const TestimonialName = styled.h3`
@@ -251,6 +288,13 @@ const StarRating = styled.span`
 `;
 
 const Home = () => {
+  const getSlidesToShow = () => {
+    if (window.innerWidth < 768) {
+      return 1;
+    }
+    return 3;
+  };
+
   const productsData = [
     {
       id: 1,
@@ -328,13 +372,22 @@ const Home = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: getSlidesToShow(),
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,
     prevArrow: <FaChevronLeft />,
     nextArrow: <FaChevronRight />,
+    responsive: [
+      {
+        breakpoint: 768, // Screen width below 768px
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const renderStars = (rating) => {
