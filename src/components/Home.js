@@ -418,6 +418,7 @@ const Home = () => {
         <h2 style={{ fontSize: "36px", color: "#007e8a" }}>
           Explore Our Featured Electrical Products
         </h2>
+
         <ProductContainer>
           {productsData.map((product) => (
             <StyledLink key={product.id} to={`/products/${product.slug}`}>

@@ -16,9 +16,14 @@ import pipes from "./../images/pipes.webp";
 import safety from "./../images/safety.jpg";
 
 const Description = styled.p`
+  color: #000000;
   font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 40px;
+  line-height: 1.8;
+  text-align: justify;
+
+  @media (min-width: 768px) {
+    margin: 0; // Remove margin for larger screens
+  }
 `;
 
 const MainContainer = styled.div`
@@ -60,18 +65,31 @@ const SectionTitle = styled.h2`
 
 const Section = styled.section`
   text-align: center;
-  padding: 50px;
-  background-color: #f1f1f1;
+  padding: 40px 150px 50px;
+  background-color: hsla(208, 33%, 89%, 1);
+  position: relative;
+  margin-top: -10px;
+
+  @media (max-width: 768px) {
+    padding: 40px 40px 50px;
+    margin-top: -10px;
+  }
 `;
 
 const ProductContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
   padding: 40px;
   gap: 70px;
   justify-items: center;
   align-items: start;
   margin-top: 40px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    padding: 10px;
+    gap: 50px;
+  }
 `;
 
 const ProductCard = styled.div`
@@ -92,6 +110,11 @@ const ProductCard = styled.div`
   &:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 70vh;
   }
 `;
 
@@ -219,7 +242,7 @@ const Products = () => {
         <img
           src={prodImage}
           alt="prodImage"
-          style={{ width: "100%", height: "90vh" }}
+          style={{ width: "100%", height: "80vh" }}
         />
       </div>
       <MainContainer>
