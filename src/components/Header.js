@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import logo from "./../images/logo.png";
 import { FaBars } from "react-icons/fa";
+import ScrollToTop from "./ScrollToTop";
 
 const HeaderContainer = styled.header`
   background: #fff;
